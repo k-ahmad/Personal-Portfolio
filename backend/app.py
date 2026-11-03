@@ -12,7 +12,10 @@ app = Flask(__name__)
 BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
-DATABASE = BASE_DIR / "contacts.db"
+if os.getenv("VERCEL"):
+    DATABASE = Path("/tmp/contacts.db")
+else:
+    DATABASE = BASE_DIR / "contacts.db"
 
 # React frontend connection
 CORS(app, resources={
