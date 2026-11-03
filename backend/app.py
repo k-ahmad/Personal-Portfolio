@@ -21,8 +21,8 @@ else:
 CORS(app, resources={
     r"/api/*": {
         "origins": [
-        "http://localhost:5173",
-        "https://personal-portfolio-alpha-ochre-95.vercel.app"
+            "http://localhost:5173",
+            "https://personal-portfolio-alpha-ochre-95.vercel.app"
         ]
     }
 })
