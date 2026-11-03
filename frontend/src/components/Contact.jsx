@@ -34,7 +34,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        'http://127.0.0.1:5000/api/contact',
+        'https://personal-portfolio-woub.vercel.app/api/contact',
         {
           method: 'POST',
           headers: {
