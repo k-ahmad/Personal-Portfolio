@@ -17,7 +17,10 @@ DATABASE = BASE_DIR / "contacts.db"
 # React frontend connection
 CORS(app, resources={
     r"/api/*": {
-        "origins": ["http://localhost:5173"]
+        "origins": [
+        "http://localhost:5173",
+        "https://personal-portfolio-alpha-ochre-95.vercel.app"
+        ]
     }
 })
 
