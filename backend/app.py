@@ -39,7 +39,7 @@ app.config["MAIL_DEFAULT_SENDER"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
 
 
-# Database initialize karna
+# Database initialize
 def init_db():
     conn = sqlite3.connect(DATABASE)
 
@@ -111,7 +111,7 @@ def contact():
             "error": "Message save nahi ho saka."
         }), 500
 
-    # Email notification bhejna
+    # Email notification
     receiver = os.getenv("CONTACT_RECEIVER")
 
     if not receiver:
