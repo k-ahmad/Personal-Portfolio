@@ -1,5 +1,11 @@
 
-import { GitBranch, ExternalLink, ArrowUpRight, Sparkles } from "lucide-react";
+import {
+  GitBranch,
+  ExternalLink,
+  ArrowUpRight,
+  Sparkles,
+} from "lucide-react";
+
 const projects = [
   {
     number: "01",
@@ -9,9 +15,8 @@ const projects = [
     description:
       "An AI-powered application that transforms lengthy text into concise, meaningful summaries using intelligent text processing.",
     technologies: ["React", "Gemini API", "Python", "Flask"],
-    status: "In Progress",
-    github:
-      "https://github.com/k-ahmad/Text-Analyzer-and-sumerizer.git",
+    status: "completed",
+    github: "https://github.com/k-ahmad/Text-Analyzer-and-sumerizer.git",
   },
   {
     number: "02",
@@ -21,7 +26,8 @@ const projects = [
     description:
       "A modern and responsive portfolio website designed to showcase my development skills, projects, and professional journey.",
     technologies: ["React", "Tailwind CSS", "Flask"],
-    status: "In Progress",
+    status: "completed",
+    github: "https://k-ahmad.github.io/portfolio-bootstrap/",
   },
   {
     number: "03",
@@ -31,8 +37,44 @@ const projects = [
     description:
       "A responsive online shopping experience where users can explore products, view details, and add items to their cart.",
     technologies: ["React", "Tailwind CSS", "JavaScript"],
-    status: "In Progress",
+    status: "completed",
+    github: "https://k-ahmad.github.io/e-commrece-project/",
   },
+  
+{
+  number: "04",
+  title: "Dream houses",
+  category: "Dream House / Real Estate",
+  image: "/projects/dream houses.png",
+  description:
+    "A modern dream house website designed to showcase beautiful homes, explore property details, and help users discover their ideal living spaces.",
+  technologies: ["React", "Tailwind CSS", "JavaScript"],
+  status: "completed",
+  github: "https://k-ahmad.github.io/Dream-houses/",
+},
+{
+  number: "05",
+  title: "Translate App",
+  category: "Language Translator / Web App",
+  image: "/projects/translate app.png",
+  description:
+    "A language translation application designed to help users translate text between different languages through a simple and user-friendly interface.",
+  technologies: ["React", "JavaScript", "API"],
+  status: "completed",
+  github: "https://k-ahmad.github.io/app-translater/",
+},
+{
+  number: "06",
+  title: "Shoes Brand",
+  category: "Footwear / E-Commerce",
+  image: "/projects/brand shoes.png",
+  description:
+    "A stylish footwear brand website featuring modern shoe collections, elegant product displays, and a smooth online shopping experience.",
+  technologies: ["React", "Tailwind CSS", "JavaScript"],
+  status: "completed",
+  github: "https://k-ahmad.github.io/shoes-brand/",
+},
+
 ];
 
 function Projects() {
@@ -79,59 +121,68 @@ function Projects() {
           </p>
         </div>
 
-        {/* Project list */}
-        <div className="space-y-8">
+        {/* Six project cards */}
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+
           {projects.map((project) => (
             <article
               key={project.number}
-              className="group grid overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] transition duration-500 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-white/[0.05] lg:grid-cols-[1.05fr_0.95fr]"
+              className="group flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] transition duration-500 hover:-translate-y-2 hover:border-blue-400/30 hover:bg-white/[0.05] hover:shadow-xl hover:shadow-blue-500/10"
             >
+
               {/* Project image */}
-              <div className="relative min-h-[240px] overflow-hidden bg-[#111c30] sm:min-h-[320px]">
+              <div className="relative h-52 overflow-hidden bg-[#111c30]">
                 <img
                   src={project.image}
                   alt={`${project.title} project preview`}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1120]/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1120]/80 via-transparent to-transparent" />
 
-                <span className="absolute left-6 top-6 rounded-full border border-white/20 bg-[#0b1120]/70 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-cyan-300 backdrop-blur-md">
+                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-[#0b1120]/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-cyan-300 backdrop-blur-md">
                   {project.category}
                 </span>
 
-                <span className="absolute bottom-5 left-6 font-mono text-5xl font-bold text-white/80">
+                <span className="absolute bottom-3 left-5 font-mono text-4xl font-bold text-white/80">
                   {project.number}
                 </span>
               </div>
 
               {/* Project details */}
-              <div className="flex flex-col justify-center p-7 sm:p-9 lg:p-10">
-                <div className="mb-5 flex items-center justify-between gap-3">
-                  <span className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-400">
+              <div className="flex flex-1 flex-col p-6">
+
+                <div className="mb-4 flex items-center justify-between gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400">
                     Project {project.number}
                   </span>
 
-                  <span className="rounded-full border border-amber-400/20 bg-amber-400/[0.07] px-3 py-1.5 text-xs text-amber-300">
+                  <span
+                    className={`rounded-full border px-3 py-1 text-[10px] font-medium ${
+                      project.status === "In Progress"
+                        ? "border-amber-400/20 bg-amber-400/[0.07] text-amber-300"
+                        : "border-cyan-400/20 bg-cyan-400/[0.07] text-cyan-300"
+                    }`}
+                  >
                     {project.status}
                   </span>
                 </div>
 
-                <h3 className="mb-4 text-2xl font-bold tracking-tight transition group-hover:text-cyan-300 sm:text-3xl">
+                <h3 className="mb-3 text-xl font-bold tracking-tight transition group-hover:text-cyan-300">
                   {project.title}
                 </h3>
 
-                <p className="mb-7 text-sm leading-7 text-gray-400 sm:text-base">
+                <p className="mb-6 flex-1 text-sm leading-7 text-gray-400">
                   {project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className="mb-8 flex flex-wrap gap-2">
+                <div className="mb-6 flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-medium text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
+                      className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] font-medium text-gray-300 transition hover:border-cyan-400/30 hover:text-cyan-300"
                     >
                       {tech}
                     </span>
@@ -139,30 +190,30 @@ function Projects() {
                 </div>
 
                 {/* Project links */}
-                <div className="mt-auto flex flex-wrap items-center gap-4">
-                  {project.github && (
+                <div className="mt-auto border-t border-white/10 pt-5">
+                  {project.github ? (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
+                      className="inline-flex items-center gap-2 rounded-xl bg-blue-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-400"
                     >
-                      <GitBranch size={17} />
+                      <GitBranch size={16} />
                       View Code
                       <ArrowUpRight size={16} />
                     </a>
-                  )}
-
-                  {!project.github && (
-                    <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm text-gray-500">
+                  ) : (
+                    <span className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-3 text-sm text-gray-500">
                       <ExternalLink size={16} />
                       Coming Soon
                     </span>
                   )}
                 </div>
+
               </div>
             </article>
           ))}
+
         </div>
 
         {/* Bottom message */}
@@ -171,6 +222,7 @@ function Projects() {
             More ideas, more experiments, and more projects are on the way.
           </p>
         </div>
+
       </div>
     </section>
   );
