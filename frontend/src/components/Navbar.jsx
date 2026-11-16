@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 function Navbar() {
@@ -14,12 +13,13 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = [
-    ["Home", "#home"],
-    ["About", "#about"],
-    ["Skills", "#skills"],
-    ["Projects", "#projects"],
-    ["Contact", "#contact"],
+  const navLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Services", href: "#services" },
   ];
 
   const closeModal = () => {
@@ -78,7 +78,6 @@ function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between nav-animate">
-
           {/* Logo */}
           <a href="#home" className="group flex items-center gap-2">
             <span className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center font-extrabold text-white shadow-lg shadow-blue-500/30 group-hover:rotate-6 transition-transform duration-300">
@@ -93,10 +92,15 @@ function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
-            {links.map(([name, href]) => (
-              <a key={name} href={href} className={navLink}>
-                {name}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-400 to-cyan-300 group-hover:w-full transition-all duration-300" />
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="group relative text-gray-300 no-underline transition duration-300 hover:text-cyan-400"
+              >
+                {link.name}
+
+                <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-gradient-to-r from-blue-400 to-cyan-300 transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
 
@@ -226,7 +230,9 @@ function Navbar() {
                     placeholder="Enter your password"
                     required
                     minLength={6}
-                    autoComplete={isRegister ? "new-password" : "current-password"}
+                    autoComplete={
+                      isRegister ? "new-password" : "current-password"
+                    }
                     className="w-full bg-[#0b1120] border border-gray-700/80 rounded-xl px-4 py-3 pr-16 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 transition"
                   />
 
