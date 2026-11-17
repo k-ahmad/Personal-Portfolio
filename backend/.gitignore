@@ -1,4 +1,30 @@
+
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# Python virtual environment
 venv/
+.venv/
+
+# Python cache
 __pycache__/
+*.py[cod]
+*.pyo
+
+# SQLite database
 contacts.db
+*.db
+
+# Node modules
+node_modules/
+
+# Build files
+dist/
+
+# System files
+.DS_Store
+
+# Logs
+*.log
